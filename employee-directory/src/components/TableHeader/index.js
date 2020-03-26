@@ -12,7 +12,7 @@ function TableHeader(props) {
                 <th key={index} className={key}>
                     {key.toUpperCase()}
                     <span>  </span>
-                    <button className={`sort-btn`} onClick={props.handleBtnClick}>
+                    <button className={`btn btn-light sort-btn`} type="button" onClick={props.handleBtnClick}>
                         {/* {`fas fa-${props.sortMethod}`} */}
                         <i className={`fa fa-${sortTypes[props.sortMethod + props.sortCategory].class}`} aria-hidden="true"></i>
                         {/* {sortTypes[props.sortMethod].class} */}
