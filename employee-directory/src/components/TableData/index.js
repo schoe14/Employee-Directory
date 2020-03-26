@@ -6,13 +6,14 @@ function TableData(props) {
     console.log("combined " + props.sortMethod + props.sortCategory);
     let combined = props.sortMethod + props.sortCategory;
     return props.employees.sort(sortTypes[combined].fn).map(employee => {
-        const { id, name, email, position } = employee //destructuring
+        const { id, name, email, position, team } = employee //destructuring
         return (
             <tr key={id}>
                 <td key={id}>{id}</td>
                 <td key={name}>{name}</td>
                 <td key={email}>{email}</td>
                 <td key={position}>{position}</td>
+                <td key={team}>{team}</td>
             </tr>
         );
     });

@@ -34,13 +34,13 @@ export default {
         class: "sort-up",
         fn: (a, b) => b.name.localeCompare(a.name)
     },
-    // update: {
-    //     class: "sort-down",
-    //     fn: (a, b) => -1
-    // },
-    // downdate: {
-    //     class: "sort-up",
-    //     fn: (a, b) => 1
-    // }
+    upteam: {
+        class: "sort-down",
+        fn: (a, b) => a.team.localeCompare(b.team)
+    },
+    downteam: {
+        class: "sort-up",
+        fn: (a, b) => b.team.localeCompare(a.team)
+    }
 };
 

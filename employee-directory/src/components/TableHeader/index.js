@@ -7,7 +7,7 @@ function TableHeader(props) {
     console.log("combined " + props.sortMethod + props.sortCategory);
 
     return header.map((key, index) => {
-        if (key === "id" || key === "name") {
+        if (key === "id" || key === "name" || key === "team") {
             return (
                 <th key={index} className={key}>
                     {key.toUpperCase()}

@@ -7,28 +7,28 @@ export default {
                     name: "Employee",
                     email: "emp@gmail.com",
                     position: "Manager",
-                    // start: 01/05/2020
+                    team: "Card Tech" 
                 },
                 {
                     id: 10000,
                     name: "Tae",
                     email: "tae@gmail.com",
                     position: "Lead Software Developer",
-                    // start: 01/05/2019
+                    team: "Card Tech"
                 },
                 {
                     id: 20000,
                     name: "Seo",
                     email: "seo@gmail.com",
                     position: "Software Developer",
-                    // start: 12/21/2019
+                    team: "Gaming"
                 },
                 {
                     id: 30000,
                     name: "Mint",
                     email: "mint@gmail.com",
                     position: "Intern",
-                    // start: 01/05/2020
+                    team: "Internal Support"
                 }
             ]);
         }, 1000);
