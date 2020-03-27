@@ -1,30 +1,32 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
-import sortTypes from "../../utils/sortTypes";
 import Container from "../../components/Container";
 import Table from "../../components/Table"
 import TableData from "../../components/TableData";
 import TableHeader from "../../components/TableHeader";
+import SearchForm from "../../components/SearchForm";
+import SearchResults from "../../components/SearchResults";
 import "./style.css";
+// import useFilter from "../../utils/FilterHook";
 
 // import Hero from "../components/Hero";
 // import Row from "../components/Row";
 // import Col from "../components/Col";
 
 function Home() {
-  const [employees, setEmployees] = useState([{
-    // excitementLevel: 0,
-    // lifeLongLearner: "true",
-    // mood: "",
-    // name: ""
-  }]);
+  const [employeesData, setEmployeesData] = useState([{}]);
+  const [employees, setEmployees] = useState([{}]);
+  const [columns, setColumns] = useState([]);
   const [sortMethod, setSortMethod] = useState("default");
   const [sortCategory, setSortCategory] = useState("id");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     API.getEmployeeList.then((res) => {
       console.log(res);
+      setEmployeesData(res);
       setEmployees(res);
+      setColumns(Object.keys(res[0]));
     });
   }, []);
 
@@ -45,9 +47,36 @@ function Home() {
     console.log(event.target.closest("th").classList.value);
   }
 
-  // const handleInputChange = event => {
-  //   setSearch(event.target.value);
-  // };
+  const filterTable = () => {
+    console.log("search: " + search);
+    if (search.length <= 1) {
+      setEmployees(employeesData);
+      return;
+    }
+    let employeesArray = [];
+    employees.map(employee => {
+      // let info = Object.values(employee);
+      let info = employee.name.toLowerCase();
+      // console.log(employee);
+      // console.log(info.toString().toLowerCase());
+      // console.log(search.toLowerCase());
+      // console.log(info.toString().toLowerCase().split(","));
+
+      if (info.includes(search.toLowerCase())) {
+        console.log(info.toString().toLowerCase() + " and " + search.toLowerCase());
+        employeesArray.push(employee);
+        console.log(employeesArray);
+      }
+      setEmployees(employeesArray);
+      return employeesArray;
+    });
+  }
+
+  const handleInputChange = event => {
+    setSearch(event.target.value);
+    filterTable();
+  };
+
   return (
     <div>
       <Container style={{ marginTop: 30, minHeight: "100vh" }}>
@@ -58,18 +87,17 @@ function Home() {
         </Row>
         <Row>
           <Col size="md-12"> */}
-
-
-        {/* <table id="employees">
-        <tbody> */}
+        <SearchForm
+          handleInputChange={handleInputChange}
+          search={search}
+          columns={columns}
+        />
+        <SearchResults search={search} />
 
         <Table>
-          <tr><TableHeader header={employees} handleBtnClick={onSortChange} sortMethod={sortMethod} sortCategory={sortCategory} /></tr>
+          <tr><TableHeader columns={columns} handleBtnClick={onSortChange} sortMethod={sortMethod} sortCategory={sortCategory} /></tr>
           <TableData employees={employees} sortMethod={sortMethod} sortCategory={sortCategory} />
         </Table>
-        {/* </tbody>
-      </table> */}
-
 
         {/* </Col>
         </Row> */}
