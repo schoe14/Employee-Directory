@@ -1,0 +1,13 @@
+i {
+    pointer-events: none;
+    font-size: medium;
+}
+
+.sort-btn {
+    font-size: smaller;
+}
+
+.btn:focus, .btn:active, .btn:hover {
+    outline: none !important;
+    box-shadow: none !important;
+}

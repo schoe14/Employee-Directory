@@ -1,0 +1,16 @@
+form.search {
+  overflow: auto;
+  margin-bottom: 10px;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+input:focus, input:active, .form-control:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #4CAF50;
+}
+
+form.search button[type="submit"] {
+  float: right;
+  margin-top: 10px;
+}
