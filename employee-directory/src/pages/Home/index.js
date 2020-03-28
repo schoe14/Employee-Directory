@@ -53,7 +53,7 @@ function Home() {
   }
 
   const handleInputChange = event => {
-    // console.log("event.target.value: " + event.target.value.toUpperCase())
+    // console.log("event.target.value: " + event.target.value)
     // console.log("event.target.id: " + event.target.id)
     filterTable(event.target.value, event.target.id);
   };
