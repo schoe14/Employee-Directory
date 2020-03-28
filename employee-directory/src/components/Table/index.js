@@ -3,7 +3,7 @@ import "./style.css";
 
 function Table(props) {
     return (
-        <table id="employees">
+        <table id="employeesTable">
             <tbody>{props.children}</tbody>
         </table>
     );

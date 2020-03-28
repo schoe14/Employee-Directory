@@ -1,3 +1,15 @@
 nav.navbar.navbar-default {
   margin-bottom: 0;
 }
+
+nav {
+  position: sticky;
+}
+
+a {
+  font-family: 'PT Sans', sans-serif;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}

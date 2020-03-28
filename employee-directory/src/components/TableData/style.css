@@ -1,20 +1,43 @@
-#employees td, #employees th {
+#employeesTable td {
     border: 1px solid #ddd;
     padding: 8px;
+    word-wrap: break-word;
+    /* word-break: break-all; */
 }
 
-#employees tr:nth-child(even) {
+tr td#email {
+    word-break: break-all;
+}
+
+#employeesTable tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-#employees tr:hover {
+#employeesTable tr:hover {
     background-color: #ddd;
 }
 
-#employees th {
+#employeesTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
     background-color: #4CAF50;
     color: white;
+}
+
+@media only screen and (max-width: 768px) {
+    #employeesTable th {
+        font-size: smaller;
+    }
+    #employeesTable td {
+        font-size: small;
+    }
+}
+
+@media only screen and (max-width: 374px) {
+    #employeesTable td {
+        word-break: break-all;
+    }
 }

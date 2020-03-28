@@ -20,9 +20,7 @@ function TableHeader(props) {
                 <th key={index} className={key}>{key.toUpperCase()}</th>
             );
         }
-
     });
-
 }
 
 export default TableHeader;
