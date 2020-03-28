@@ -66,8 +66,19 @@ function Home() {
           columns={columns}
         />
         <Table>
-          <tr><TableHeader columns={columns} handleBtnClick={onSortChange} sortMethod={sortMethod} sortCategory={sortCategory} /></tr>
-          <TableData employees={employees} sortMethod={sortMethod} sortCategory={sortCategory} />
+          <tr>
+            <TableHeader
+              columns={columns}
+              handleBtnClick={onSortChange}
+              sortMethod={sortMethod}
+              sortCategory={sortCategory}
+            />
+          </tr>
+          <TableData
+            employees={employees}
+            sortMethod={sortMethod}
+            sortCategory={sortCategory}
+          />
         </Table>
       </Container>
     </div>
